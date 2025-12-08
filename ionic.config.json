@@ -1,0 +1,7 @@
+{
+  "name": "app_icecream_ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
