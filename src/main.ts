@@ -5,8 +5,12 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
+import { StockRepository } from './app/repository/stock-repository';
+import { StockRepositoryDummyImpl } from './app/repository/stock-repository-dummy-impl';
+
 bootstrapApplication(AppComponent, {
   providers: [
+    {provide: StockRepository, useClass: StockRepositoryDummyImpl},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
