@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>makeIceCream</ion-title>
+    <ion-title>Make Ice Cream</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">makeIceCream</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+
+  <ion-grid>
+
+    @for (flavour of flavours; track flavour.name) {
+      <app-flavour-product [flavour]="flavour"></app-flavour-product>
+    }
+
+  </ion-grid>
+
 </ion-content>
