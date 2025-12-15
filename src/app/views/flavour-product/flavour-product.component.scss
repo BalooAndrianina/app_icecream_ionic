@@ -1,20 +1,58 @@
+/* Ligne principale */
 .flavour-row {
-  align-items: center;      /* centre verticalement image + texte */
-}
-
-.image-col {
-  display: flex;
-  justify-content: center;  /* centre horizontalement l'image */
   align-items: center;
+  margin-bottom: 12px;
 }
 
-img {
-  height: 35px;             /* taille parfaite comme sur ton image */
-  width: 35px;              /* forme carrée */
-  object-fit: contain;      /* garde les proportions exactes de la boule */
+/* Image du parfum */
+.flavour-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
 }
- 
+
+/* Nom du parfum */
 .flavour-name {
-  font-size: 18px;         
+  font-size: 15px;
+}
+
+/* tout les controle */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/* Box grise + et - */
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f2f2f2;
+  border-radius: 20px;
+  padding: 4px 8px;
+}
+
+/* Quantité */
+.quantity-value {
+  min-width: 18px;
+  text-align: center;
   font-weight: 500;
+}
+
+/* Boutons + et - */
+ion-button {
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --min-height: 24px;
+  height: 24px;
+}
+
+/* Bouton alert*/
+.alert-button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
 }
