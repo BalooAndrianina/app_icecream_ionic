@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StockRepository } from 'src/app/repository/stock-repository';
 import { Flavour } from 'src/app/data/flavour';
+
+import { MailService } from 'src/app/repository/mail-service';
+
+
 import {
   IonContent,
   IonHeader,
@@ -40,8 +44,10 @@ export class FlavourEmptyPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private stockRepository: StockRepository
+    private stockRepository: StockRepository,
+    private mailService: MailService
   ) {}
+
 
   ngOnInit(): void {
     const name = this.route.snapshot.paramMap.get('name');
@@ -53,4 +59,31 @@ export class FlavourEmptyPage implements OnInit {
   get message(): string {
     return `${this.flavour?.name} flavour is empty`;
   }
+
+  private buildOrderBody(): string {
+    const sig = this.signature?.trim() || '';
+    return [
+      'Hi ,',
+      '',
+      'Please order the following :',
+      `* ${this.flavour?.name} icecream`,
+      '',
+      `Thanks , ${sig}`
+    ].join('\n');
+  }
+
+  order(): void {
+    if (!this.flavour) {
+      return;
+    }
+
+    this.mailService.send({
+      to: 'order@icecream.com',
+      subject: 'Order',
+      body: this.buildOrderBody()
+    });
+  }
+
+
+  
 }
