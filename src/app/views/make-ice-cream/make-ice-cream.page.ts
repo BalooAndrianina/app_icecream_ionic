@@ -8,6 +8,8 @@ import { Flavour } from 'src/app/data/flavour';
 import { FlavourProductComponent } from '../flavour-product/flavour-product.component';
 import { ContainerSelectorComponent } from '../components/container-selector/container-selector.component';
 import { Container } from 'src/app/data/container';
+import { Extras } from 'src/app/data/extras';
+import { ExtrasSelectorComponent } from '../components/extras-selector/extras-selector.component';
 
 @Component({
   selector: 'app-make-ice-cream',
@@ -17,7 +19,7 @@ import { Container } from 'src/app/data/container';
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonGrid,
     CommonModule, FormsModule,
-    FlavourProductComponent, ContainerSelectorComponent
+    FlavourProductComponent, ContainerSelectorComponent, ExtrasSelectorComponent
   ]
 })
 export class MakeIceCreamPage implements OnInit {
@@ -36,6 +38,18 @@ export class MakeIceCreamPage implements OnInit {
 
   //Sélection courante
   selectedContainer: 'cone' | 'cup' = 'cup';
+
+  //liste des extras disponibles
+  extrasOptions: Extras[] = [
+    { key: 'whippedCream', label: 'Whipped Cream', price: 0.95 },
+    { key: 'hazelnuts', label: 'Hazelnuts', price: 1.30 }
+  ];
+
+  selectedExtras = {
+    whippedCream: false,
+    hazelnuts: false
+  };
+
 
 
 

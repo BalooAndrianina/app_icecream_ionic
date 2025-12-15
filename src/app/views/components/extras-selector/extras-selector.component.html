@@ -1,3 +1,21 @@
-<p>
-  extras-selector works!
-</p>
+<h2 class="section-title">Extras</h2>
+
+@for (extra of extras; track extra.key) {
+  <ion-item lines="none" class="extra-item">
+
+    <ion-checkbox
+      slot="start"
+      [checked]="selected[extra.key]"
+      (ionChange)="onToggleExtra(extra.key, $event.detail.checked)">
+    </ion-checkbox>
+
+    <ion-label>
+      {{ extra.label }}
+    </ion-label>
+
+    <span class="extra-price">
+      € {{ extra.price.toFixed(2) }}
+    </span>
+
+  </ion-item>
+}
