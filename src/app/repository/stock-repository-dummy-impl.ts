@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Extras } from '../data/extras';
+import { ExtrasStock } from '../data/extras-stock';
 import { ContainerStock } from '../data/container-stock';
 import { Flavour } from '../data/flavour';
 import { StockRepository } from './stock-repository';
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +17,12 @@ export class StockRepositoryDummyImpl extends StockRepository{
   ];
 
   public containers: ContainerStock[] = [
-  { name: "cups", quantity: 5 },
-  { name: "cones", quantity: 5 }
-];
+    { name: "cups", quantity: 5 },
+    { name: "cones", quantity: 5 }
+  ];
   
-  public extras: Extras[] = [
-    {name: "Whipped Cream", quantity: 100, unit: "ml"},
-    {name: "HazelNuts", quantity: 100, unit: "g"}
-  ]; 
+  public extras: ExtrasStock[] = [
+    { name: 'Whipped Cream', quantity: 100, unit: 'ml' },
+    { name: 'HazelNuts', quantity: 100, unit: 'g' }
+  ];
 }

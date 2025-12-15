@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {IonRow, IonCol, IonLabel, IonButton} from '@ionic/angular/standalone';
 import { Flavour } from 'src/app/data/flavour';
 import { Container } from 'src/app/data/container';
-import { Extras } from 'src/app/data/extras';
+import { Extra } from 'src/app/data/extra';
 
 
 @Component({
