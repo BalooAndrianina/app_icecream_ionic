@@ -1,9 +1,15 @@
-<ion-row style="margin-bottom:16px; align-items:center;">
+<ion-row class="flavour-row">
+  
+  <ion-col size="1" class="image-col">
+    <img [src]="flavour.image" alt="{{ flavour.name }}">
+  </ion-col>
+
   <ion-col>
-    <ion-label>{{ flavour.name }}</ion-label>
+    <ion-label class="flavour-name">{{ flavour.name }}</ion-label>
   </ion-col>
 
   <ion-col size="auto">
-    <ion-label>{{ flavour.quantity }}</ion-label>
+    <ion-label>{{ flavour.quantity }} {{ flavour.unit }}</ion-label>
   </ion-col>
+
 </ion-row>

@@ -1,5 +1,7 @@
 export interface Flavour {
     name: string;
-    quantity: number;
+    image: string;
+    stock: number; //nombre de boules sélectionnés
+    quantity: number; //quantité en ml en stock
     unit: string;
 }

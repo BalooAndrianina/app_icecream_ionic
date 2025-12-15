@@ -1,0 +1,20 @@
+.flavour-row {
+  align-items: center;      /* centre verticalement image + texte */
+}
+
+.image-col {
+  display: flex;
+  justify-content: center;  /* centre horizontalement l'image */
+  align-items: center;
+}
+
+img {
+  height: 35px;             /* taille parfaite comme sur ton image */
+  width: 35px;              /* forme carrée */
+  object-fit: contain;      /* garde les proportions exactes de la boule */
+}
+ 
+.flavour-name {
+  font-size: 18px;         
+  font-weight: 500;
+}

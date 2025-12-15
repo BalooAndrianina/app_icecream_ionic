@@ -10,9 +10,9 @@ import { StockRepository } from './stock-repository';
 export class StockRepositoryDummyImpl extends StockRepository{
 
   public flavours: Flavour[] = [
-    {name: "vanille", quantity: 300, unit: "ml"},
-    {name: "pistachio", quantity: 250, unit: "ml"},
-    {name: "chocolat", quantity: 200, unit: "ml"}
+    {name: "vanille", image: "assets/images/vanilla.jpg", stock: 300, quantity: 0, unit: "ml"},
+    {name: "pistachio", image: "assets/images/pistachio.jpg", stock: 250, quantity: 0,unit: "ml"},
+    {name: "chocolat", image: "assets/images/chocolate.jpg",stock: 200, quantity: 0,unit: "ml"}
   ];
 
   public containers: Container[] = [
