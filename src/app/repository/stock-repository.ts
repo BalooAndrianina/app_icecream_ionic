@@ -8,4 +8,11 @@ export abstract class StockRepository {
     public abstract extras: ExtrasStock[];
 
     public abstract getFlavour(name: string): Flavour | undefined;
+    public abstract makeIceCream(
+    selectedContainer: 'cone' | 'cup',
+    selectedExtras: {
+      whippedCream: boolean;
+      hazelnuts: boolean;
+    }
+  ): void;
 }

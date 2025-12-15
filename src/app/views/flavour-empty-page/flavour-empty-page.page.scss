@@ -59,3 +59,47 @@
   text-transform: none;
   margin-top: 8px;
 }
+
+/* Liste globale */
+ion-list {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+/* Élément de liste */
+ion-item {
+  --padding-start: 8px;
+  --inner-padding-end: 8px;
+  --min-height: 44px;
+  font-size: 14px;
+}
+
+ion-checkbox {
+  margin-right: 8px;
+}
+
+
+ion-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+ion-item span[slot="end"] {
+  font-size: 13px;
+  color: #444;
+  min-width: 60px;
+  text-align: right;
+}
+
+
+ion-checkbox[disabled] {
+  opacity: 0.6;
+}
+
+
+ion-list + ion-list {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 8px;
+}

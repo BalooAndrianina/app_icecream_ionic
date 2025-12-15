@@ -29,4 +29,45 @@ export class StockRepositoryDummyImpl extends StockRepository{
   public override getFlavour(name: string): Flavour | undefined {
     return this.flavours.find(f => f.name === name);
   }
+
+  public override makeIceCream(
+    selectedContainer: 'cone' | 'cup',
+    selectedExtras: {
+      whippedCream: boolean;
+      hazelnuts: boolean;
+    }
+  ): void {
+
+  
+    this.flavours.forEach(flavour => {
+      const usedVolume = flavour.quantity * 50;
+      flavour.stock = Math.max(0, flavour.stock - usedVolume);
+      flavour.quantity = 0; // reset quantité
+    });
+
+
+    const container = this.containers.find(
+      c => c.name === (selectedContainer === 'cone' ? 'cones' : 'cups')
+    );
+
+    if (container) {
+      container.quantity = Math.max(0, container.quantity - 1);
+    }
+
+
+    if (selectedExtras.whippedCream) {
+      const wc = this.extras.find(e => e.name === 'Whipped Cream');
+      if (wc) {
+        wc.quantity = Math.max(0, wc.quantity - 75);
+      }
+    }
+
+    if (selectedExtras.hazelnuts) {
+      const hz = this.extras.find(e => e.name === 'HazelNuts');
+      if (hz) {
+        hz.quantity = Math.max(0, hz.quantity - 5);
+      }
+    }
+  }
+
 }

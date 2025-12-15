@@ -108,6 +108,24 @@ export class MakeIceCreamPage implements OnInit {
   get tooManyScoops(): boolean {
     return this.totalScoops > 5;
   }
+  makeIceCream(): void {
+    if (!this.canMakeIceCream) {
+      return;
+    }
+
+    this.stockRepository.makeIceCream(
+      this.selectedContainer,
+      this.selectedExtras
+    );
+
+    // reset UI uniquement
+    this.selectedContainer = 'cup';
+    this.selectedExtras = {
+      whippedCream: false,
+      hazelnuts: false
+    };
+  }
+
 
   ngOnInit() {}
 }
