@@ -1,0 +1,44 @@
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 16px;
+  font-size: 16px;
+}
+
+.price-label {
+  font-weight: 500;
+}
+
+.price-value {
+  font-weight: 600;
+}
+
+.make-button {
+  --background: #6a56a5; // violet proche de la maquette
+  --border-radius: 20px;
+  height: 48px;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.make-button[disabled] {
+  opacity: 0.6;
+}
+
+.scoops-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-text {
+  color: #e53935;
+  font-size: 12px;
+  font-weight: 500;
+}
+.info-text {
+  color: #555555;
+  font-size: 12px;
+  font-weight: 500;
+}
