@@ -6,6 +6,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid } from '@ionic/ang
 import { StockRepository } from 'src/app/repository/stock-repository';
 import { Flavour } from 'src/app/data/flavour';
 import { FlavourProductComponent } from '../flavour-product/flavour-product.component';
+import { ContainerSelectorComponent } from '../components/container-selector/container-selector.component';
+import { Container } from 'src/app/data/container';
 
 @Component({
   selector: 'app-make-ice-cream',
@@ -15,7 +17,7 @@ import { FlavourProductComponent } from '../flavour-product/flavour-product.comp
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonGrid,
     CommonModule, FormsModule,
-    FlavourProductComponent
+    FlavourProductComponent, ContainerSelectorComponent
   ]
 })
 export class MakeIceCreamPage implements OnInit {
@@ -25,6 +27,17 @@ export class MakeIceCreamPage implements OnInit {
   get flavours(): Flavour[] {
     return this.stockRepository.flavours;
   }
+
+  //Liste des contenants disponibles
+    containers: Container[] = [
+    { name: 'cone', label: 'Cone', price: 1 },
+    { name: 'cup',  label: 'Cup',  price: 0 }
+  ];
+
+  //Sélection courante
+  selectedContainer: 'cone' | 'cup' = 'cup';
+
+
 
   ngOnInit() {}
 }

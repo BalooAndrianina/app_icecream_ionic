@@ -1,4 +1,5 @@
 export interface Container {
-    name:string;
-    quantity:number;
+  name: 'cone' | 'cup';
+  label: string;
+  price: number;
 }

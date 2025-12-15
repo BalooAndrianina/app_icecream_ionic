@@ -12,6 +12,11 @@
       <app-flavour-product [flavour]="flavour"></app-flavour-product>
     }
 
+    <app-container-selector
+      [containers]="containers"
+      [(selected)]="selectedContainer">
+    </app-container-selector>
+
   </ion-grid>
 
 </ion-content>

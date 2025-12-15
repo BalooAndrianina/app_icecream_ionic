@@ -15,10 +15,6 @@ export class StockRepositoryDummyImpl extends StockRepository{
     {name: "chocolat", image: "assets/images/chocolate.jpg",stock: 200, quantity: 0,unit: "ml"}
   ];
 
-  public containers: Container[] = [
-    {name: "cups", quantity:5},
-    {name: "cones", quantity: 5}
-  ];
   
   public extras: Extras[] = [
     {name: "Whipped Cream", quantity: 100, unit: "ml"},
