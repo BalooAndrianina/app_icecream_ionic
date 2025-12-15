@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/make-ice-cream"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ flavour?.name }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <div class="flavour-card">
+
+    <img
+      [src]="flavour?.image"
+      [alt]="flavour?.name"
+      class="flavour-image"
+    />
+
+    <p class="empty-text">
+      {{ message }}
+    </p>
+
+    <div class="signature-row">
+      <ion-input
+        placeholder="Thanks, MB"
+        [(ngModel)]="signature">
+      </ion-input>
+
+      <ion-button class="order-btn">
+        Order
+      </ion-button>
+    </div>
+
+    <ion-button expand="block" class="check-btn">
+      Check all items
+    </ion-button>
+
+  </div>
+
+</ion-content>

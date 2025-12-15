@@ -10,4 +10,11 @@ export const routes: Routes = [
     path: 'make-ice-cream',
     loadComponent: () => import('./views/make-ice-cream/make-ice-cream.page').then( m => m.MakeIceCreamPage)
   },
+  {
+    path: 'flavour-empty/:name',
+    loadComponent: () =>
+      import('./views/flavour-empty-page/flavour-empty-page.page')
+        .then(m => m.FlavourEmptyPage),
+  }
+
 ];

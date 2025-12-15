@@ -6,4 +6,6 @@ export abstract class StockRepository {
     public abstract flavours: Flavour[];
     public abstract containers: ContainerStock[];
     public abstract extras: ExtrasStock[];
+
+    public abstract getFlavour(name: string): Flavour | undefined;
 }

@@ -25,4 +25,8 @@ export class StockRepositoryDummyImpl extends StockRepository{
     { name: 'Whipped Cream', quantity: 100, unit: 'ml' },
     { name: 'HazelNuts', quantity: 100, unit: 'g' }
   ];
+
+  public override getFlavour(name: string): Flavour | undefined {
+    return this.flavours.find(f => f.name === name);
+  }
 }

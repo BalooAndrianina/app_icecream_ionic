@@ -3,6 +3,7 @@ import {IonRow, IonCol, IonLabel, IonButton} from '@ionic/angular/standalone';
 import { Flavour } from 'src/app/data/flavour';
 import { Container } from 'src/app/data/container';
 import { Extras } from 'src/app/data/extras';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Extras } from 'src/app/data/extras';
   templateUrl: './flavour-product.component.html',
   styleUrls: ['./flavour-product.component.scss'],
   standalone: true,
-  imports : [IonRow , IonCol , IonLabel, IonButton]
+  imports : [IonRow , IonCol , IonLabel, IonButton, RouterLink]
 })
 export class FlavourProductComponent {
 

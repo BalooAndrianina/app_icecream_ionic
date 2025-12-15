@@ -43,14 +43,14 @@
     </div>
 
     @if (flavour.stock < 50) {
-      <ion-button
-        color="danger"
-        size="small"
-        class="alert-button"
-        disabled>
-        !
-      </ion-button>
-    }
+  <ion-button class="alert-button"
+    color="danger"
+    size="small"
+    [routerLink]="['/flavour-empty', flavour.name]">
+    !
+  </ion-button>
+}
+
 
   </ion-col>
 
