@@ -31,15 +31,98 @@
         [(ngModel)]="signature">
       </ion-input>
 
-      <ion-button class="order-btn" (click)="order()">
+      <ion-button
+        class="order-btn"
+        [disabled]="showAllItems"
+        (click)="order()">
         Order
       </ion-button>
 
+
     </div>
 
-    <ion-button expand="block" class="check-btn">
-      Check all items
+    @if (!showAllItems) {
+      <ion-button expand="block" class="check-btn" (click)="showAllItems = true">
+        Check all items
+      </ion-button>
+    } @else {
+      <ion-button expand="block" class="check-btn" (click)="showAllItems = false">
+        Collapse other items
+      </ion-button>
+    }
+
+    @if (showAllItems) {
+
+    <!-- FLAVOURS -->
+    <ion-list>
+      @for (f of flavours; track f.name) {
+        <ion-item>
+          <ion-checkbox
+            slot="start"
+            [checked]="selectedItems[f.name]"
+            [disabled]="f.name === flavour?.name"
+            (ionChange)="selectedItems[f.name] = $event.detail.checked">
+          </ion-checkbox>
+
+          <ion-label>
+            {{ f.name }}
+          </ion-label>
+
+          <span slot="end">
+            {{ f.stock }} ml
+          </span>
+        </ion-item>
+      }
+    </ion-list>
+
+    <!-- CONTAINERS -->
+    <ion-list>
+      @for (c of containers; track c.name) {
+        <ion-item>
+          <ion-checkbox
+            slot="start"
+            (ionChange)="selectedItems[c.name] = $event.detail.checked">
+          </ion-checkbox>
+
+          <ion-label>
+            {{ c.name }}
+          </ion-label>
+
+          <span slot="end">
+            {{ c.quantity }}
+          </span>
+        </ion-item>
+      }
+    </ion-list>
+
+    <!-- EXTRAS -->
+    <ion-list>
+      @for (e of extras; track e.name) {
+        <ion-item>
+          <ion-checkbox
+            slot="start"
+            (ionChange)="selectedItems[e.name] = $event.detail.checked">
+          </ion-checkbox>
+
+          <ion-label>
+            {{ e.name }}
+          </ion-label>
+
+          <span slot="end">
+            {{ e.quantity }} {{ e.unit }}
+          </span>
+        </ion-item>
+      }
+    </ion-list>
+
+  }
+  @if (showAllItems) {
+    <ion-button expand="block" class="order-btn" (click)="orderAll()">
+      Order
     </ion-button>
+  }
+
+
 
   </div>
 

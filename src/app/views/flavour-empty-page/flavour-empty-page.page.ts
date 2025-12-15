@@ -14,7 +14,7 @@ import {
   IonButton,
   IonInput,
   IonBackButton,
-  IonButtons
+  IonButtons, IonLabel, IonList, IonItem, IonCheckbox
 } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +34,7 @@ imports: [
   IonButton,
   IonInput,
   CommonModule,
-  FormsModule
+  FormsModule, IonLabel, IonList, IonItem, IonCheckbox
 ]
 })
 export class FlavourEmptyPage implements OnInit {
@@ -54,7 +54,26 @@ export class FlavourEmptyPage implements OnInit {
     if (name) {
       this.flavour = this.stockRepository.getFlavour(name);
     }
+    if (this.flavour) {
+      // le parfum courant est sélectionné et bloqué
+      this.selectedItems[this.flavour.name] = true;
+    }
+
   }
+
+  
+  get flavours() {
+    return this.stockRepository.flavours;
+  }
+
+  get containers() {
+    return this.stockRepository.containers;
+  }
+
+  get extras() {
+    return this.stockRepository.extras;
+  }
+
 
   get message(): string {
     return `${this.flavour?.name} flavour is empty`;
@@ -72,6 +91,38 @@ export class FlavourEmptyPage implements OnInit {
     ].join('\n');
   }
 
+  private getSelectedItems(): string[] {
+    return Object.entries(this.selectedItems)
+      .filter(([_, selected]) => selected)
+      .map(([name]) => name);
+  }
+  private buildMultiOrderBody(): string {
+    const items = this.getSelectedItems();
+
+    return [
+      'Hi ,',
+      '',
+      'Please order the following :',
+      ...items.map(i => `* ${i}`),
+      '',
+      `Thanks , ${this.signature || ''}`
+    ].join('\n');
+  }
+
+  orderAll(): void {
+    const items = this.getSelectedItems();
+    if (items.length === 0) {
+      return;
+    }
+
+    this.mailService.send({
+      to: 'order@icecream.com',
+      subject: 'Order',
+      body: this.buildMultiOrderBody()
+    });
+  }
+
+
   order(): void {
     if (!this.flavour) {
       return;
@@ -83,6 +134,11 @@ export class FlavourEmptyPage implements OnInit {
       body: this.buildOrderBody()
     });
   }
+  // affichage / masquage
+showAllItems = false;
+
+// sélection des éléments à commander
+selectedItems: Record<string, boolean> = {};
 
 
   
