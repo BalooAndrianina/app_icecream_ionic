@@ -7,11 +7,14 @@ import { AppComponent } from './app/app.component';
 
 import { StockRepository } from './app/repository/stock-repository';
 import { StockRepositoryDummyImpl } from './app/repository/stock-repository-dummy-impl';
+import { MailService } from './app/repository/mail-service';
+import { MailServiceImpl } from './app/repository/mail-service-impl';
 
 bootstrapApplication(AppComponent, {
   providers: [
     {provide: StockRepository, useClass: StockRepositoryDummyImpl},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: MailService, useClass: MailServiceImpl },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
   ],
